@@ -10,9 +10,9 @@ Specify the root URL for the wrapped API with the root option.
 Create functions on the wrapper by passing a map of function names to path patterns for each HTTP METHOD.
 
 ```
-RestWrapper = require('rest-wrapper');
+ApiWrapper = require('api-wrapper');
 
-mjpClient = RestWrapper.create({
+mjpClient = ApiWrapper.create({
     root: 'https://michaeljperri.com/api/',
     get: {
         search: '/search/${zipCode}?radius|make'
@@ -60,9 +60,9 @@ The requestDefaults parameter will be passed to [request.defaults](https://githu
 You can also pass different options to the request module for a particular endpoint.
 
 ```
-RestWrapper = require('rest-wrapper');
+ApiWrapper = require('api-wrapper');
 
-mjpClient = RestWrapper.create({
+mjpClient = ApiWrapper.create({
     root: 'https://michaeljperri.com/api/',
     post: {
         postMessage: '/message/${messageId}',

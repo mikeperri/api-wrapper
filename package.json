@@ -12,6 +12,10 @@
     "wrapper",
     "client"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mikeperri/api-wrapper.git"
+  },
   "author": "Mike Perri",
   "license": "ISC",
   "dependencies": {
