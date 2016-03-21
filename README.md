@@ -14,6 +14,7 @@ ApiWrapper = require('api-wrapper');
 
 mjpClient = ApiWrapper.create({
     root: 'https://michaeljperri.com/api/',
+    parseJson: true,
     get: {
         search: '/search/${zipCode}?radius|make'
         getCustomerById: '/search/${customerId}'
@@ -52,6 +53,9 @@ These will create functions that take three parameters: path arguments, a reques
 
 ### path patterns
 Path patterns will be interpolated with the path arguments. These can correspond to either path variables (like ```${pathVariable}```) or query params (separated by pipes like ```?param1|param2|param3```).
+
+### parseJson
+If true, the wrapper will attempt to parse the response body as JSON before passing it to the callback.
 
 ### requestDefaults
 The requestDefaults parameter will be passed to [request.defaults](https://github.com/request/request/tree/v2.69.0#requestdefaultsoptions).
@@ -105,3 +109,7 @@ mjpClient.searchAsync({ formId: 1234 }, 'some-form-data')
 ```
 
 See the [bluebird documentation](http://bluebirdjs.com/docs/api/promise.promisifyall.html) for more details.
+
+
+## More examples
+See [lib/index.spec.js](https://github.com/mikeperri/api-wrapper/blob/master/lib/index.spec.js).
