@@ -61,8 +61,9 @@ If true, the wrapper will attempt to parse the response body as JSON before pass
 The requestDefaults parameter will be passed to [request.defaults](https://github.com/request/request/tree/v2.69.0#requestdefaultsoptions).
 
 ### Overriding request options
-You can also pass different options to the request module for a particular endpoint.
+You may need to set more options for the request module, for example, HTTP headers.
 
+You can set options for all calls to an endpoint when creating the wrapper:
 ```
 ApiWrapper = require('api-wrapper');
 
@@ -85,9 +86,19 @@ mjpClient = ApiWrapper.create({
 });
 ```
 
-Now calling mjpClient.submit will make a request with the given headers.
+Now calling mjpClient.submit({}, 'request-body', callback) will make a request with the given headers.
 
-Note that the 'uri' and 'method' properties (and 'body' for post/patch/put) will still be set on the options object.
+
+You can also add more options to the request object when you call the function by adding another parameter before the callback, e.g.:
+```
+mjpClient.submit({}, 'request-body', { headers: { 'cookies': 'someCookie=blah;' } }, callback)
+
+```
+
+For a request that doesn't take a body parameter, that would be:
+```
+mjpClient.search({}, { headers: { 'cookies': 'someCookie=blah;' } }, callback)
+```
 
 See the [request documentation](https://github.com/request/request/tree/v2.69.0#requestoptions-callback) for the full list of options.
 
