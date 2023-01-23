@@ -15,9 +15,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/mikeperri/api-wrapper.git"
+    "url": "https://github.com/VottonDev/api-wrapper.git"
   },
-  "author": "Mike Perri",
+  "author": "Otto Hooper",
   "license": "ISC",
   "dependencies": {
     "bluebird": "^3.3.4",
