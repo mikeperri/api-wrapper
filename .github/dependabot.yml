@@ -1,0 +1,7 @@
+version: 2
+updates:
+  - package-ecosystem: npm #set the package ecosystem to npm
+    directory: / #looking in the root dir for the file
+    schedule:
+      interval: weekly #checking weekly for updates
+      day: friday #checking on friday
